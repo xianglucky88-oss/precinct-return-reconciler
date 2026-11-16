@@ -1,0 +1,28 @@
+{
+  "returns": [
+    {
+      "county": "C1",
+      "precinct": "P1",
+      "ballot_type": "early",
+      "candidate": "A",
+      "votes": 40
+    },
+    {
+      "county": "C1",
+      "precinct": "P1",
+      "ballot_type": "election_day",
+      "candidate": "A",
+      "votes": 60
+    },
+    {
+      "county": "C1",
+      "precinct": "P1",
+      "ballot_type": "early",
+      "candidate": "B",
+      "votes": 20
+    }
+  ],
+  "expected_precinct_totals": {
+    "P1": 120
+  }
+}
