@@ -1,0 +1,149 @@
+{
+  "case": "exact_duplicate",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "early": 40,
+      "election_day": 60
+    },
+    "candidate_totals": {
+      "A": 100
+    },
+    "contributing_indices": [
+      0,
+      2
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 100
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 100
+    },
+    "input": {
+      "record_count": 3
+    },
+    "input_errors": [],
+    "invalid_records": [],
+    "precinct_balanced": {
+      "P1": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 40,
+        "election_day": 60
+      }
+    },
+    "precinct_differences": {
+      "P1": 0
+    },
+    "precinct_totals": {
+      "P1": 100
+    },
+    "record_refs": {
+      "P1": [
+        0,
+        2
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [
+      {
+        "index": 1,
+        "kept_index": 0,
+        "reason": "exact_duplicate",
+        "record": {
+          "ballot_type": "early",
+          "candidate": "A",
+          "county": "C1",
+          "precinct": "P1",
+          "revision": 0,
+          "votes": 40
+        }
+      }
+    ],
+    "total_expected": 100,
+    "total_votes": 100,
+    "warnings": [
+      {
+        "code": "exact_duplicate_rows",
+        "indices": [
+          0,
+          1
+        ],
+        "key": [
+          "C1",
+          "P1",
+          "early",
+          "A"
+        ]
+      }
+    ]
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": false,
+      "ballot_type_totals": {
+        "early": 80,
+        "election_day": 60
+      },
+      "candidate_totals": {
+        "A": 140
+      },
+      "difference": 40,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 140
+    }
+  },
+  "verdict": {
+    "notes": [
+      "gap_analysis:fully_explained_by_excluded_rows",
+      "oracle_warnings:exact_duplicate_rows"
+    ],
+    "provenance": {
+      "ballot_type_deltas": {
+        "early": {
+          "oracle": 40,
+          "sut": 80
+        }
+      },
+      "candidate_deltas": {
+        "A": {
+          "oracle": 100,
+          "sut": 140
+        }
+      },
+      "superseded_records": [
+        {
+          "index": 1,
+          "kept_index": 0,
+          "reason": "exact_duplicate",
+          "record": {
+            "ballot_type": "early",
+            "candidate": "A",
+            "county": "C1",
+            "precinct": "P1",
+            "revision": 0,
+            "votes": 40
+          }
+        }
+      ]
+    },
+    "reasons": [
+      "cause:sut_counts_superseded:exact_duplicate",
+      "mismatch:balanced",
+      "mismatch:ballot_type_totals",
+      "mismatch:candidate_totals",
+      "mismatch:difference",
+      "mismatch:total_votes"
+    ],
+    "status": "divergent"
+  }
+}

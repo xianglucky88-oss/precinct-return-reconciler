@@ -1,0 +1,97 @@
+{
+  "case": "missing_votes",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "early": 40
+    },
+    "candidate_totals": {
+      "A": 40
+    },
+    "contributing_indices": [
+      0
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 40
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 40
+    },
+    "input": {
+      "record_count": 2
+    },
+    "input_errors": [],
+    "invalid_records": [
+      {
+        "detail": "votes",
+        "index": 1,
+        "reason": "missing_field",
+        "row": {
+          "ballot_type": "early",
+          "candidate": "B",
+          "county": "C1",
+          "precinct": "P1"
+        }
+      }
+    ],
+    "precinct_balanced": {
+      "P1": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 40
+      }
+    },
+    "precinct_differences": {
+      "P1": 0
+    },
+    "precinct_totals": {
+      "P1": 40
+    },
+    "record_refs": {
+      "P1": [
+        0
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 40,
+    "total_votes": 40,
+    "warnings": []
+  },
+  "sut": {
+    "error_type": "KeyError",
+    "kind": "raise",
+    "message": "'votes'"
+  },
+  "verdict": {
+    "notes": [],
+    "provenance": {
+      "invalid_records": [
+        {
+          "detail": "votes",
+          "index": 1,
+          "reason": "missing_field",
+          "row": {
+            "ballot_type": "early",
+            "candidate": "B",
+            "county": "C1",
+            "precinct": "P1"
+          }
+        }
+      ]
+    },
+    "reasons": [
+      "sut_cannot_classify:missing_field:votes",
+      "sut_loses_partial_results",
+      "sut_raises:KeyError"
+    ],
+    "status": "sut_error"
+  }
+}

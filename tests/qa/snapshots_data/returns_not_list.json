@@ -1,0 +1,46 @@
+{
+  "case": "returns_not_list",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {},
+    "candidate_totals": {},
+    "contributing_indices": [],
+    "county_precincts": {},
+    "county_totals": {},
+    "difference": 0,
+    "expected_precinct_totals": {},
+    "input": {
+      "record_count": 0
+    },
+    "input_errors": [
+      {
+        "detail": "dict",
+        "reason": "returns_not_list"
+      }
+    ],
+    "invalid_records": [],
+    "precinct_balanced": {},
+    "precinct_ballot_type_totals": {},
+    "precinct_differences": {},
+    "precinct_totals": {},
+    "record_refs": {},
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 0,
+    "total_votes": 0,
+    "warnings": []
+  },
+  "sut": {
+    "error_type": "ValueError",
+    "kind": "raise",
+    "message": "returns must be a list"
+  },
+  "verdict": {
+    "notes": [],
+    "provenance": {},
+    "reasons": [
+      "sut_raises:ValueError"
+    ],
+    "status": "sut_error"
+  }
+}

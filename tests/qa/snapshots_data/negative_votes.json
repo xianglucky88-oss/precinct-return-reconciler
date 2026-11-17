@@ -1,0 +1,135 @@
+{
+  "case": "negative_votes",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "early": 40,
+      "election_day": 60
+    },
+    "candidate_totals": {
+      "A": 100
+    },
+    "contributing_indices": [
+      0,
+      2
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 100
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 100
+    },
+    "input": {
+      "record_count": 3
+    },
+    "input_errors": [],
+    "invalid_records": [
+      {
+        "detail": -15,
+        "index": 1,
+        "reason": "negative_votes",
+        "row": {
+          "ballot_type": "early",
+          "candidate": "B",
+          "county": "C1",
+          "precinct": "P1",
+          "revision": 0,
+          "votes": -15
+        }
+      }
+    ],
+    "precinct_balanced": {
+      "P1": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 40,
+        "election_day": 60
+      }
+    },
+    "precinct_differences": {
+      "P1": 0
+    },
+    "precinct_totals": {
+      "P1": 100
+    },
+    "record_refs": {
+      "P1": [
+        0,
+        2
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 100,
+    "total_votes": 100,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": false,
+      "ballot_type_totals": {
+        "early": 25,
+        "election_day": 60
+      },
+      "candidate_totals": {
+        "A": 100,
+        "B": -15
+      },
+      "difference": -15,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 85
+    }
+  },
+  "verdict": {
+    "notes": [
+      "gap_analysis:fully_explained_by_excluded_rows"
+    ],
+    "provenance": {
+      "ballot_type_deltas": {
+        "early": {
+          "oracle": 40,
+          "sut": 25
+        }
+      },
+      "candidate_deltas": {
+        "B": {
+          "oracle": 0,
+          "sut": -15
+        }
+      },
+      "invalid_records": [
+        {
+          "detail": -15,
+          "index": 1,
+          "reason": "negative_votes",
+          "row": {
+            "ballot_type": "early",
+            "candidate": "B",
+            "county": "C1",
+            "precinct": "P1",
+            "revision": 0,
+            "votes": -15
+          }
+        }
+      ]
+    },
+    "reasons": [
+      "cause:sut_counts_rows_oracle_rejects:negative_votes",
+      "mismatch:balanced",
+      "mismatch:ballot_type_totals",
+      "mismatch:candidate_totals",
+      "mismatch:difference",
+      "mismatch:total_votes"
+    ],
+    "status": "divergent"
+  }
+}

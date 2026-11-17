@@ -1,0 +1,98 @@
+{
+  "case": "expected_missing_precinct",
+  "oracle": {
+    "balanced": false,
+    "ballot_type_totals": {
+      "early": 30
+    },
+    "candidate_totals": {
+      "A": 10,
+      "B": 20
+    },
+    "contributing_indices": [
+      0,
+      1
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1",
+        "P2"
+      ]
+    },
+    "county_totals": {
+      "C1": 30
+    },
+    "difference": 20,
+    "expected_precinct_totals": {
+      "P1": 10
+    },
+    "input": {
+      "record_count": 2
+    },
+    "input_errors": [],
+    "invalid_records": [],
+    "precinct_balanced": {
+      "P1": true,
+      "P2": false
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 10
+      },
+      "P2": {
+        "early": 20
+      }
+    },
+    "precinct_differences": {
+      "P1": 0,
+      "P2": 20
+    },
+    "precinct_totals": {
+      "P1": 10,
+      "P2": 20
+    },
+    "record_refs": {
+      "P1": [
+        0
+      ],
+      "P2": [
+        1
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 10,
+    "total_votes": 30,
+    "warnings": [
+      {
+        "code": "precinct_missing_expected_total",
+        "precinct": "P2"
+      }
+    ]
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": false,
+      "ballot_type_totals": {
+        "early": 30
+      },
+      "candidate_totals": {
+        "A": 10,
+        "B": 20
+      },
+      "difference": 20,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 30
+    }
+  },
+  "verdict": {
+    "notes": [
+      "oracle_warnings:precinct_missing_expected_total"
+    ],
+    "provenance": {},
+    "reasons": [],
+    "status": "conformant"
+  }
+}

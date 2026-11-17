@@ -1,0 +1,125 @@
+{
+  "case": "non_dict_rows",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "early": 40,
+      "election_day": 60
+    },
+    "candidate_totals": {
+      "A": 100
+    },
+    "contributing_indices": [
+      0,
+      4
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 100
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 100
+    },
+    "input": {
+      "record_count": 5
+    },
+    "input_errors": [],
+    "invalid_records": [
+      {
+        "detail": "int",
+        "index": 1,
+        "reason": "row_not_mapping",
+        "row": 42
+      },
+      {
+        "detail": "str",
+        "index": 2,
+        "reason": "row_not_mapping",
+        "row": "junk"
+      },
+      {
+        "detail": "NoneType",
+        "index": 3,
+        "reason": "row_not_mapping",
+        "row": null
+      }
+    ],
+    "precinct_balanced": {
+      "P1": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 40,
+        "election_day": 60
+      }
+    },
+    "precinct_differences": {
+      "P1": 0
+    },
+    "precinct_totals": {
+      "P1": 100
+    },
+    "record_refs": {
+      "P1": [
+        0,
+        4
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 100,
+    "total_votes": 100,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": true,
+      "ballot_type_totals": {
+        "early": 40,
+        "election_day": 60
+      },
+      "candidate_totals": {
+        "A": 100
+      },
+      "difference": 0,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 100
+    }
+  },
+  "verdict": {
+    "notes": [
+      "sut_silently_drops_invalid_rows"
+    ],
+    "provenance": {
+      "invalid_records": [
+        {
+          "detail": "int",
+          "index": 1,
+          "reason": "row_not_mapping",
+          "row": 42
+        },
+        {
+          "detail": "str",
+          "index": 2,
+          "reason": "row_not_mapping",
+          "row": "junk"
+        },
+        {
+          "detail": "NoneType",
+          "index": 3,
+          "reason": "row_not_mapping",
+          "row": null
+        }
+      ]
+    },
+    "reasons": [],
+    "status": "conformant"
+  }
+}

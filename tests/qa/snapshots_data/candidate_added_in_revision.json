@@ -1,0 +1,168 @@
+{
+  "case": "candidate_added_in_revision",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "early": 52,
+      "election_day": 55
+    },
+    "candidate_totals": {
+      "A": 100,
+      "C": 7
+    },
+    "contributing_indices": [
+      2,
+      3,
+      4
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 107
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 107
+    },
+    "input": {
+      "record_count": 5
+    },
+    "input_errors": [],
+    "invalid_records": [],
+    "precinct_balanced": {
+      "P1": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 52,
+        "election_day": 55
+      }
+    },
+    "precinct_differences": {
+      "P1": 0
+    },
+    "precinct_totals": {
+      "P1": 107
+    },
+    "record_refs": {
+      "P1": [
+        2,
+        3,
+        4
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [
+      {
+        "index": 0,
+        "reason": "superseded_by_newer_filing",
+        "record": {
+          "ballot_type": "early",
+          "candidate": "A",
+          "county": "C1",
+          "precinct": "P1",
+          "revision": 1,
+          "votes": 40
+        },
+        "winning_revision": 2
+      },
+      {
+        "index": 1,
+        "reason": "superseded_by_newer_filing",
+        "record": {
+          "ballot_type": "election_day",
+          "candidate": "A",
+          "county": "C1",
+          "precinct": "P1",
+          "revision": 1,
+          "votes": 60
+        },
+        "winning_revision": 2
+      }
+    ],
+    "total_expected": 107,
+    "total_votes": 107,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": false,
+      "ballot_type_totals": {
+        "early": 92,
+        "election_day": 115
+      },
+      "candidate_totals": {
+        "A": 200,
+        "C": 7
+      },
+      "difference": 100,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 207
+    }
+  },
+  "verdict": {
+    "notes": [
+      "gap_analysis:fully_explained_by_excluded_rows"
+    ],
+    "provenance": {
+      "ballot_type_deltas": {
+        "early": {
+          "oracle": 52,
+          "sut": 92
+        },
+        "election_day": {
+          "oracle": 55,
+          "sut": 115
+        }
+      },
+      "candidate_deltas": {
+        "A": {
+          "oracle": 100,
+          "sut": 200
+        }
+      },
+      "superseded_records": [
+        {
+          "index": 0,
+          "reason": "superseded_by_newer_filing",
+          "record": {
+            "ballot_type": "early",
+            "candidate": "A",
+            "county": "C1",
+            "precinct": "P1",
+            "revision": 1,
+            "votes": 40
+          },
+          "winning_revision": 2
+        },
+        {
+          "index": 1,
+          "reason": "superseded_by_newer_filing",
+          "record": {
+            "ballot_type": "election_day",
+            "candidate": "A",
+            "county": "C1",
+            "precinct": "P1",
+            "revision": 1,
+            "votes": 60
+          },
+          "winning_revision": 2
+        }
+      ]
+    },
+    "reasons": [
+      "cause:sut_counts_superseded:superseded_by_newer_filing",
+      "mismatch:balanced",
+      "mismatch:ballot_type_totals",
+      "mismatch:candidate_totals",
+      "mismatch:difference",
+      "mismatch:total_votes"
+    ],
+    "status": "divergent"
+  }
+}

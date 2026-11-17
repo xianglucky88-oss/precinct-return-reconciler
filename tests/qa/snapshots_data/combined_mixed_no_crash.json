@@ -1,0 +1,204 @@
+{
+  "case": "combined_mixed_no_crash",
+  "oracle": {
+    "balanced": false,
+    "ballot_type_totals": {
+      "early": 122,
+      "election_day": 95
+    },
+    "candidate_totals": {
+      "A": 192,
+      "B": 25
+    },
+    "contributing_indices": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      8
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1",
+        "P2"
+      ],
+      "C2": [
+        "P3"
+      ]
+    },
+    "county_totals": {
+      "C1": 137,
+      "C2": 80
+    },
+    "difference": -8,
+    "expected_precinct_totals": {
+      "P1": 120,
+      "P2": 17,
+      "P3": 88
+    },
+    "input": {
+      "record_count": 9
+    },
+    "input_errors": [],
+    "invalid_records": [
+      {
+        "detail": -9,
+        "index": 7,
+        "reason": "negative_votes",
+        "row": {
+          "ballot_type": "early",
+          "candidate": "B",
+          "county": "C2",
+          "precinct": "P3",
+          "revision": 0,
+          "votes": -9
+        }
+      }
+    ],
+    "precinct_balanced": {
+      "P1": true,
+      "P2": true,
+      "P3": false
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 60,
+        "election_day": 60
+      },
+      "P2": {
+        "early": 12,
+        "election_day": 5
+      },
+      "P3": {
+        "early": 50,
+        "election_day": 30
+      }
+    },
+    "precinct_differences": {
+      "P1": 0,
+      "P2": 0,
+      "P3": -8
+    },
+    "precinct_totals": {
+      "P1": 120,
+      "P2": 17,
+      "P3": 80
+    },
+    "record_refs": {
+      "P1": [
+        0,
+        1,
+        2
+      ],
+      "P2": [
+        4,
+        5
+      ],
+      "P3": [
+        6,
+        8
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [
+      {
+        "index": 3,
+        "reason": "superseded_by_newer_filing",
+        "record": {
+          "ballot_type": "early",
+          "candidate": "A",
+          "county": "C1",
+          "precinct": "P2",
+          "revision": 1,
+          "votes": 10
+        },
+        "winning_revision": 2
+      }
+    ],
+    "total_expected": 225,
+    "total_votes": 217,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": false,
+      "ballot_type_totals": {
+        "early": 123,
+        "election_day": 95
+      },
+      "candidate_totals": {
+        "A": 202,
+        "B": 16
+      },
+      "difference": -7,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 218
+    }
+  },
+  "verdict": {
+    "notes": [
+      "gap_analysis:fully_explained_by_excluded_rows"
+    ],
+    "provenance": {
+      "ballot_type_deltas": {
+        "early": {
+          "oracle": 122,
+          "sut": 123
+        }
+      },
+      "candidate_deltas": {
+        "A": {
+          "oracle": 192,
+          "sut": 202
+        },
+        "B": {
+          "oracle": 25,
+          "sut": 16
+        }
+      },
+      "invalid_records": [
+        {
+          "detail": -9,
+          "index": 7,
+          "reason": "negative_votes",
+          "row": {
+            "ballot_type": "early",
+            "candidate": "B",
+            "county": "C2",
+            "precinct": "P3",
+            "revision": 0,
+            "votes": -9
+          }
+        }
+      ],
+      "superseded_records": [
+        {
+          "index": 3,
+          "reason": "superseded_by_newer_filing",
+          "record": {
+            "ballot_type": "early",
+            "candidate": "A",
+            "county": "C1",
+            "precinct": "P2",
+            "revision": 1,
+            "votes": 10
+          },
+          "winning_revision": 2
+        }
+      ]
+    },
+    "reasons": [
+      "cause:sut_counts_rows_oracle_rejects:negative_votes",
+      "cause:sut_counts_superseded:superseded_by_newer_filing",
+      "mismatch:ballot_type_totals",
+      "mismatch:candidate_totals",
+      "mismatch:difference",
+      "mismatch:total_votes"
+    ],
+    "status": "divergent"
+  }
+}

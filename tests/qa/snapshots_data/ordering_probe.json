@@ -1,0 +1,89 @@
+{
+  "case": "ordering_probe",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "early": 15,
+      "election_day": 7
+    },
+    "candidate_totals": {
+      "A": 10,
+      "B": 7,
+      "C": 5
+    },
+    "contributing_indices": [
+      0,
+      1,
+      2
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 22
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 22
+    },
+    "input": {
+      "record_count": 3
+    },
+    "input_errors": [],
+    "invalid_records": [],
+    "precinct_balanced": {
+      "P1": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 15,
+        "election_day": 7
+      }
+    },
+    "precinct_differences": {
+      "P1": 0
+    },
+    "precinct_totals": {
+      "P1": 22
+    },
+    "record_refs": {
+      "P1": [
+        0,
+        1,
+        2
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 22,
+    "total_votes": 22,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": true,
+      "ballot_type_totals": {
+        "early": 15,
+        "election_day": 7
+      },
+      "candidate_totals": {
+        "A": 10,
+        "B": 7,
+        "C": 5
+      },
+      "difference": 0,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 22
+    }
+  },
+  "verdict": {
+    "notes": [],
+    "provenance": {},
+    "reasons": [],
+    "status": "conformant"
+  }
+}

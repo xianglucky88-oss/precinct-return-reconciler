@@ -1,0 +1,130 @@
+{
+  "case": "votes_float",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "early": 40
+    },
+    "candidate_totals": {
+      "A": 40
+    },
+    "contributing_indices": [
+      0
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 40
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 40
+    },
+    "input": {
+      "record_count": 2
+    },
+    "input_errors": [],
+    "invalid_records": [
+      {
+        "detail": "votes",
+        "index": 1,
+        "reason": "invalid_field_type",
+        "row": {
+          "ballot_type": "early",
+          "candidate": "B",
+          "county": "C1",
+          "precinct": "P1",
+          "revision": 0,
+          "votes": 1.5
+        }
+      }
+    ],
+    "precinct_balanced": {
+      "P1": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 40
+      }
+    },
+    "precinct_differences": {
+      "P1": 0
+    },
+    "precinct_totals": {
+      "P1": 40
+    },
+    "record_refs": {
+      "P1": [
+        0
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 40,
+    "total_votes": 40,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": false,
+      "ballot_type_totals": {
+        "early": 41
+      },
+      "candidate_totals": {
+        "A": 40,
+        "B": 1
+      },
+      "difference": 1,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 41
+    }
+  },
+  "verdict": {
+    "notes": [
+      "gap_analysis:fully_explained_by_excluded_rows"
+    ],
+    "provenance": {
+      "ballot_type_deltas": {
+        "early": {
+          "oracle": 40,
+          "sut": 41
+        }
+      },
+      "candidate_deltas": {
+        "B": {
+          "oracle": 0,
+          "sut": 1
+        }
+      },
+      "invalid_records": [
+        {
+          "detail": "votes",
+          "index": 1,
+          "reason": "invalid_field_type",
+          "row": {
+            "ballot_type": "early",
+            "candidate": "B",
+            "county": "C1",
+            "precinct": "P1",
+            "revision": 0,
+            "votes": 1.5
+          }
+        }
+      ]
+    },
+    "reasons": [
+      "cause:sut_counts_rows_oracle_rejects:invalid_field_type",
+      "mismatch:balanced",
+      "mismatch:ballot_type_totals",
+      "mismatch:candidate_totals",
+      "mismatch:difference",
+      "mismatch:total_votes"
+    ],
+    "status": "divergent"
+  }
+}

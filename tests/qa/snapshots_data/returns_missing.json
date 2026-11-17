@@ -1,0 +1,46 @@
+{
+  "case": "returns_missing",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {},
+    "candidate_totals": {},
+    "contributing_indices": [],
+    "county_precincts": {},
+    "county_totals": {},
+    "difference": 0,
+    "expected_precinct_totals": {},
+    "input": {
+      "record_count": 0
+    },
+    "input_errors": [],
+    "invalid_records": [],
+    "precinct_balanced": {},
+    "precinct_ballot_type_totals": {},
+    "precinct_differences": {},
+    "precinct_totals": {},
+    "record_refs": {},
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 0,
+    "total_votes": 0,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": true,
+      "ballot_type_totals": {},
+      "candidate_totals": {},
+      "difference": 0,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 0
+    }
+  },
+  "verdict": {
+    "notes": [],
+    "provenance": {},
+    "reasons": [],
+    "status": "conformant"
+  }
+}

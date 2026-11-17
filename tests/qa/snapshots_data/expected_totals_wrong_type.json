@@ -1,0 +1,79 @@
+{
+  "case": "expected_totals_wrong_type",
+  "oracle": {
+    "balanced": false,
+    "ballot_type_totals": {
+      "early": 40
+    },
+    "candidate_totals": {
+      "A": 40
+    },
+    "contributing_indices": [
+      0
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1"
+      ]
+    },
+    "county_totals": {
+      "C1": 40
+    },
+    "difference": 40,
+    "expected_precinct_totals": {},
+    "input": {
+      "record_count": 1
+    },
+    "input_errors": [],
+    "invalid_records": [],
+    "precinct_balanced": {
+      "P1": false
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 40
+      }
+    },
+    "precinct_differences": {
+      "P1": 40
+    },
+    "precinct_totals": {
+      "P1": 40
+    },
+    "record_refs": {
+      "P1": [
+        0
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 0,
+    "total_votes": 40,
+    "warnings": [
+      {
+        "code": "expected_totals_not_mapping",
+        "detail": "list"
+      },
+      {
+        "code": "precinct_missing_expected_total",
+        "precinct": "P1"
+      }
+    ]
+  },
+  "sut": {
+    "error_type": "AttributeError",
+    "kind": "raise",
+    "message": "'list' object has no attribute 'values'"
+  },
+  "verdict": {
+    "notes": [
+      "oracle_warnings:expected_totals_not_mapping,precinct_missing_expected_total"
+    ],
+    "provenance": {},
+    "reasons": [
+      "sut_loses_partial_results",
+      "sut_raises:AttributeError"
+    ],
+    "status": "sut_error"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "case": "clean_multi",
+  "oracle": {
+    "balanced": true,
+    "ballot_type_totals": {
+      "absentee": 1,
+      "early": 19,
+      "election_day": 8
+    },
+    "candidate_totals": {
+      "A": 16,
+      "B": 9,
+      "C": 3
+    },
+    "contributing_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1",
+        "P2"
+      ],
+      "C2": [
+        "P3"
+      ]
+    },
+    "county_totals": {
+      "C1": 22,
+      "C2": 6
+    },
+    "difference": 0,
+    "expected_precinct_totals": {
+      "P1": 15,
+      "P2": 7,
+      "P3": 6
+    },
+    "input": {
+      "record_count": 6
+    },
+    "input_errors": [],
+    "invalid_records": [],
+    "precinct_balanced": {
+      "P1": true,
+      "P2": true,
+      "P3": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 10,
+        "election_day": 5
+      },
+      "P2": {
+        "early": 7
+      },
+      "P3": {
+        "absentee": 1,
+        "early": 2,
+        "election_day": 3
+      }
+    },
+    "precinct_differences": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 0
+    },
+    "precinct_totals": {
+      "P1": 15,
+      "P2": 7,
+      "P3": 6
+    },
+    "record_refs": {
+      "P1": [
+        0,
+        1
+      ],
+      "P2": [
+        2
+      ],
+      "P3": [
+        3,
+        4,
+        5
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [],
+    "total_expected": 28,
+    "total_votes": 28,
+    "warnings": []
+  },
+  "sut": {
+    "kind": "ok",
+    "output": {
+      "balanced": true,
+      "ballot_type_totals": {
+        "absentee": 1,
+        "early": 19,
+        "election_day": 8
+      },
+      "candidate_totals": {
+        "A": 16,
+        "B": 9,
+        "C": 3
+      },
+      "difference": 0,
+      "project": "precinct-return-reconciler",
+      "status": "ok",
+      "total_votes": 28
+    }
+  },
+  "verdict": {
+    "notes": [],
+    "provenance": {},
+    "reasons": [],
+    "status": "conformant"
+  }
+}

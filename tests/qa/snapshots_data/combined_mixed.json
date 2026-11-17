@@ -1,0 +1,218 @@
+{
+  "case": "combined_mixed",
+  "oracle": {
+    "balanced": false,
+    "ballot_type_totals": {
+      "early": 122,
+      "election_day": 95
+    },
+    "candidate_totals": {
+      "A": 192,
+      "B": 25
+    },
+    "contributing_indices": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "county_precincts": {
+      "C1": [
+        "P1",
+        "P2"
+      ],
+      "C2": [
+        "P3",
+        "P4"
+      ]
+    },
+    "county_totals": {
+      "C1": 137,
+      "C2": 80
+    },
+    "difference": -8,
+    "expected_precinct_totals": {
+      "P1": 120,
+      "P2": 17,
+      "P3": 88,
+      "P4": 0
+    },
+    "input": {
+      "record_count": 12
+    },
+    "input_errors": [],
+    "invalid_records": [
+      {
+        "detail": -9,
+        "index": 7,
+        "reason": "negative_votes",
+        "row": {
+          "ballot_type": "early",
+          "candidate": "B",
+          "county": "C2",
+          "precinct": "P3",
+          "revision": 0,
+          "votes": -9
+        }
+      },
+      {
+        "detail": "ballot_type",
+        "index": 10,
+        "reason": "missing_field",
+        "row": {
+          "candidate": "C",
+          "county": "C2",
+          "precinct": "P4",
+          "votes": 3
+        }
+      },
+      {
+        "detail": "str",
+        "index": 11,
+        "reason": "row_not_mapping",
+        "row": "corrupted"
+      }
+    ],
+    "precinct_balanced": {
+      "P1": true,
+      "P2": true,
+      "P3": false,
+      "P4": true
+    },
+    "precinct_ballot_type_totals": {
+      "P1": {
+        "early": 60,
+        "election_day": 60
+      },
+      "P2": {
+        "early": 12,
+        "election_day": 5
+      },
+      "P3": {
+        "early": 50,
+        "election_day": 30
+      },
+      "P4": {
+        "election_day": 0
+      }
+    },
+    "precinct_differences": {
+      "P1": 0,
+      "P2": 0,
+      "P3": -8,
+      "P4": 0
+    },
+    "precinct_totals": {
+      "P1": 120,
+      "P2": 17,
+      "P3": 80,
+      "P4": 0
+    },
+    "record_refs": {
+      "P1": [
+        0,
+        1,
+        2
+      ],
+      "P2": [
+        4,
+        5
+      ],
+      "P3": [
+        6,
+        8
+      ],
+      "P4": [
+        9
+      ]
+    },
+    "schema": "qa-reference/v1",
+    "superseded_records": [
+      {
+        "index": 3,
+        "reason": "superseded_by_newer_filing",
+        "record": {
+          "ballot_type": "early",
+          "candidate": "A",
+          "county": "C1",
+          "precinct": "P2",
+          "revision": 1,
+          "votes": 10
+        },
+        "winning_revision": 3
+      }
+    ],
+    "total_expected": 225,
+    "total_votes": 217,
+    "warnings": []
+  },
+  "sut": {
+    "error_type": "KeyError",
+    "kind": "raise",
+    "message": "'ballot_type'"
+  },
+  "verdict": {
+    "notes": [],
+    "provenance": {
+      "invalid_records": [
+        {
+          "detail": -9,
+          "index": 7,
+          "reason": "negative_votes",
+          "row": {
+            "ballot_type": "early",
+            "candidate": "B",
+            "county": "C2",
+            "precinct": "P3",
+            "revision": 0,
+            "votes": -9
+          }
+        },
+        {
+          "detail": "ballot_type",
+          "index": 10,
+          "reason": "missing_field",
+          "row": {
+            "candidate": "C",
+            "county": "C2",
+            "precinct": "P4",
+            "votes": 3
+          }
+        },
+        {
+          "detail": "str",
+          "index": 11,
+          "reason": "row_not_mapping",
+          "row": "corrupted"
+        }
+      ],
+      "superseded_records": [
+        {
+          "index": 3,
+          "reason": "superseded_by_newer_filing",
+          "record": {
+            "ballot_type": "early",
+            "candidate": "A",
+            "county": "C1",
+            "precinct": "P2",
+            "revision": 1,
+            "votes": 10
+          },
+          "winning_revision": 3
+        }
+      ]
+    },
+    "reasons": [
+      "sut_cannot_classify:missing_field:ballot_type",
+      "sut_cannot_classify:negative_votes:-9",
+      "sut_cannot_classify:row_not_mapping:str",
+      "sut_loses_partial_results",
+      "sut_raises:KeyError"
+    ],
+    "status": "sut_error"
+  }
+}
