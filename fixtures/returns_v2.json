@@ -1,0 +1,84 @@
+{
+  "schema_version": 2,
+  "state": "S",
+  "hierarchy": [
+    {"scope": {"state": "S"}, "expected_total": 600},
+    {"scope": {"state": "S", "county": "C1"}},
+    {"scope": {"state": "S", "county": "C2"}},
+    {"scope": {"state": "S", "county": "C1", "precinct": "P1"}, "expected_total": 300},
+    {"scope": {"state": "S", "county": "C1", "precinct": "P2"}, "expected_total": 100},
+    {"scope": {"state": "S", "county": "C2", "precinct": "P3"}, "expected_total": 200},
+    {"scope": {"state": "S", "county": "C1", "precinct": "P1", "ballot_type": "early"}},
+    {"scope": {"state": "S", "county": "C1", "precinct": "P1", "ballot_type": "election_day"}},
+    {"scope": {"state": "S", "county": "C1", "precinct": "P2", "ballot_type": "mail"}},
+    {"scope": {"state": "S", "county": "C2", "precinct": "P3", "ballot_type": "election_day"}}
+  ],
+  "announcements": [
+    {
+      "announcement_id": "a1",
+      "version": 1,
+      "kind": "batch",
+      "batch_id": "b1",
+      "scope": {"state": "S", "county": "C1", "precinct": "P1", "ballot_type": "early"},
+      "lines": [
+        {"candidate": "Alice", "votes": 100, "status": "official"},
+        {"candidate": "Bob", "votes": 40, "status": "official"}
+      ],
+      "expected_total": 140
+    },
+    {
+      "announcement_id": "a2",
+      "version": 2,
+      "kind": "batch",
+      "batch_id": "b2",
+      "scope": {"state": "S", "county": "C1", "precinct": "P1", "ballot_type": "election_day"},
+      "lines": [
+        {"candidate": "Alice", "votes": 110, "status": "provisional"},
+        {"candidate": "Bob", "votes": 50, "status": "provisional"}
+      ]
+    },
+    {
+      "announcement_id": "a3",
+      "version": 3,
+      "kind": "batch",
+      "batch_id": "b3",
+      "scope": {"state": "S", "county": "C1", "precinct": "P2", "ballot_type": "mail"},
+      "lines": [
+        {"candidate": "Alice", "votes": 60, "status": "official"},
+        {"candidate": "Bob", "votes": 40, "status": "official"}
+      ]
+    },
+    {
+      "announcement_id": "a4",
+      "version": 4,
+      "kind": "conversion",
+      "scope": {"state": "S", "county": "C1", "precinct": "P1", "ballot_type": "election_day"},
+      "lines": [
+        {"candidate": "Alice", "votes": 110, "status": "official"},
+        {"candidate": "Bob", "votes": 50, "status": "official"}
+      ]
+    },
+    {
+      "announcement_id": "a5",
+      "version": 5,
+      "kind": "batch",
+      "batch_id": "b4",
+      "scope": {"state": "S", "county": "C2", "precinct": "P3", "ballot_type": "election_day"},
+      "lines": [
+        {"candidate": "Alice", "votes": 120, "status": "official"},
+        {"candidate": "Bob", "votes": 80, "status": "official"}
+      ]
+    },
+    {
+      "announcement_id": "a6",
+      "version": 6,
+      "kind": "revision",
+      "supersedes": "a5",
+      "scope": {"state": "S", "county": "C2", "precinct": "P3", "ballot_type": "election_day"},
+      "lines": [
+        {"candidate": "Alice", "votes": 130, "status": "official"},
+        {"candidate": "Bob", "votes": 70, "status": "official"}
+      ]
+    }
+  ]
+}
